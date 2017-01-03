@@ -244,6 +244,13 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
     [event addEntriesFromDictionary: @{
       @"data": data,
     }];
+
+
+    NSString *source = @"document.dispatchEvent(new MessageEvent('message:received'));";  
+    
+    [_webView stringByEvaluatingJavaScriptFromString:source];
+    
+
     _onMessage(event);
   }
 
